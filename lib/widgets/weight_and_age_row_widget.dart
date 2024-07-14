@@ -8,7 +8,6 @@ class WeightAndAgeRow extends StatelessWidget {
   final ValueChanged<int> onWeightChanged;
   final ValueChanged<int> onAgeChanged;
 
-  // Define maxWeight and maxAge constants
   static const int maxWeight = 150;
   static const int maxAge = 100;
 
@@ -117,22 +116,19 @@ class _RoundIconButton extends StatefulWidget {
 }
 
 class _RoundIconButtonState extends State<_RoundIconButton> {
-  late Timer _timer;
+  Timer? _timer;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
+        widget.onPressed?.call();
         _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
           widget.onPressed?.call();
         });
       },
-      onTapUp: (_) {
-        _timer.cancel();
-      },
-      onTapCancel: () {
-        _timer.cancel();
-      },
+      onTapUp: (_) => _timer?.cancel(),
+      onTapCancel: () => _timer?.cancel(),
       child: RawMaterialButton(
         onPressed: widget.onPressed,
         elevation: 6.0,

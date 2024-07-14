@@ -28,6 +28,7 @@ class ResultScreen extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
+              width: double.infinity,
               margin: const EdgeInsets.all(15.0),
               padding: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(

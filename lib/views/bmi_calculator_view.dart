@@ -15,9 +15,9 @@ class CalculatorScreen extends StatefulWidget {
 
 class CalculatorScreenState extends State<CalculatorScreen> {
   Gender selectedGender = Gender.male;
-  double height = 181;
-  int weight = 60;
-  int age = 25;
+  double height = 175;
+  int weight = 65;
+  int age = 22;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  HeightCard(
+                  HeightSelectorCard(
                     height: height,
                     onHeightChanged: (double newHeight) {
                       setState(() {
