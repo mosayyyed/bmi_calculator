@@ -1,6 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+
+import 'height_display.dart';
+import 'increment_decrement_button.dart';
 
 class HeightSelectorCard extends StatelessWidget {
   final double height;
@@ -33,7 +34,7 @@ class HeightSelectorCard extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                _HeightDisplay(height: height),
+                HeightDisplay(height: height),
               ],
             ),
             Padding(
@@ -42,7 +43,7 @@ class HeightSelectorCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _IncrementDecrementButton(
+                  IncrementDecrementButton(
                     icon: Icons.remove,
                     onPressed: () =>
                         onHeightChanged((height - 1).clamp(100.0, 220.0)),
@@ -66,7 +67,7 @@ class HeightSelectorCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  _IncrementDecrementButton(
+                  IncrementDecrementButton(
                     icon: Icons.add,
                     onPressed: () =>
                         onHeightChanged((height + 1).clamp(100.0, 220.0)),
@@ -78,82 +79,5 @@ class HeightSelectorCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _HeightDisplay extends StatelessWidget {
-  final double height;
-
-  const _HeightDisplay({required this.height});
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: height.round().toString(),
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 55,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const TextSpan(
-            text: ' cm',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _IncrementDecrementButton extends StatefulWidget {
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  const _IncrementDecrementButton({
-    required this.icon,
-    required this.onPressed,
-  });
-
-  @override
-  _IncrementDecrementButtonState createState() =>
-      _IncrementDecrementButtonState();
-}
-
-class _IncrementDecrementButtonState extends State<_IncrementDecrementButton> {
-  Timer? _timer;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: (_) => _startTimer(),
-      onTapUp: (_) => _timer?.cancel(),
-      onTapCancel: () => _timer?.cancel(),
-      child: IconButton(
-        iconSize: 30,
-        icon: Icon(widget.icon, color: Colors.white),
-        onPressed: widget.onPressed,
-      ),
-    );
-  }
-
-  void _startTimer() {
-    widget.onPressed();
-    _timer = Timer.periodic(
-        const Duration(milliseconds: 100), (_) => widget.onPressed());
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
   }
 }

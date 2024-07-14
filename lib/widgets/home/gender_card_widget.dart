@@ -1,49 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../enum/gender_enum.dart';
+import '../../enum/gender_enum.dart';
 
-class GenderSelectionRow extends StatelessWidget {
-  final Gender selectedGender;
-  final ValueChanged<Gender> onGenderSelected;
-
-  const GenderSelectionRow({
-    super.key,
-    required this.selectedGender,
-    required this.onGenderSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        children: [
-          Expanded(
-            child: _GenderCard(
-              gender: Gender.male,
-              isSelected: selectedGender == Gender.male,
-              onTap: () => onGenderSelected(Gender.male),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: _GenderCard(
-              gender: Gender.female,
-              isSelected: selectedGender == Gender.female,
-              onTap: () => onGenderSelected(Gender.female),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _GenderCard extends StatelessWidget {
+class GenderCard extends StatelessWidget {
   final Gender gender;
   final bool isSelected;
   final VoidCallback onTap;
 
-  const _GenderCard({
+  const GenderCard({
+    super.key,
     required this.gender,
     required this.isSelected,
     required this.onTap,

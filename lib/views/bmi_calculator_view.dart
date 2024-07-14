@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../enum/gender_enum.dart';
-import '../widgets/calculate_button_widget.dart';
-import '../widgets/gender_selection_row_widget.dart';
-import '../widgets/height_card_widget.dart';
-import '../widgets/weight_and_age_row_widget.dart';
+import '../widgets/home/calculate_button_widget.dart';
+import '../widgets/home/gender_selection_row_widget.dart';
+import '../widgets/home/height_card_widget/height_card_widget.dart';
+import '../widgets/home/weight_and_age_row/value_row_widget.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
@@ -54,20 +54,20 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  WeightAndAgeRow(
-                    weight: weight,
-                    age: age,
-                    onWeightChanged: (int newWeight) {
+                  ValueRow(
+                    value1: weight,
+                    value2: age,
+                    onValue1Changed: (int newWeight) {
                       setState(() {
                         weight = newWeight;
                       });
                     },
-                    onAgeChanged: (int newAge) {
+                    onValue2Changed: (int newAge) {
                       setState(() {
                         age = newAge;
                       });
                     },
-                  ),
+                  )
                 ],
               ),
             ),
