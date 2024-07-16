@@ -1,6 +1,5 @@
 # BMI Calculator 📱⚖️
-
-![BMI Calculator]([https://your_image_url_here](https://github.com/user-attachments/assets/64a6c2b0-be4f-404c-82d8-90e5f1fab5e0))
+![نسخة من SnapNews](https://github.com/user-attachments/assets/743dfaf0-54a8-45b9-8ec0-5dae3fb7b859)
 
 BMI Calculator is a sleek and intuitive app designed to help you calculate your Body Mass Index (BMI) based on your height, weight, age, and gender. This app uses Flutter to deliver a seamless experience, making it easy to stay informed about your health.
 
