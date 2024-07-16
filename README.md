@@ -57,23 +57,6 @@ The application is built with responsiveness in mind, ensuring that it adapts se
     flutter run
     ```
 
-## Project Structure 🗂️
+## Contributions 🤝
 
-```plaintext
-lib
-├── main.dart                  // Entry point of the app
-├── views
-│   ├── bmi_calculator_view.dart // Main calculator screen
-│   └── bmi_result_view.dart     // Result screen
-├── widgets
-│   ├── home
-│   │   ├── calculate_button_widget.dart
-│   │   ├── gender_selection_row_widget.dart
-│   │   ├── height_card_widget
-│   │   │   └── height_card_widget.dart
-│   │   └── weight_and_age_row
-│   │       └── value_row_widget.dart
-│   └── result
-│       └── result_card_widget.dart
-└── utility
-    └── bmi_utilities.dart     // Utility functions for BMI calculation
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to submit a pull request or open an issue.
